@@ -1,20 +1,17 @@
 { config, pkgs, ... }:
 let
   config = builtins.fromJSON (builtins.readFile ./networking.json);
-  useStaticIP = config.ipv4 != "";
 in
 {
   networking.hostName = config.hostName;
 
-  # static ip if necessary
-  if useStaticIP then {
-    networking.interfaces.eth0.ipv4.addresses = [ {
-      address = config.ipv4;
-      prefixLength = 24;
-    } ];
-    networking.defaultGateway = config.gateway;
-    networking.nameservers = config.nameservers;
-  };
+  # static ip
+  networking.interfaces.eth0.ipv4.addresses = [ {
+    address = config.ipv4;
+    prefixLength = 24;
+  } ];
+  networking.defaultGateway = config.gateway;
+  networking.nameservers = config.nameservers;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
