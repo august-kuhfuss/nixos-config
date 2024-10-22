@@ -6,7 +6,7 @@
     description = "ansible@kuhfuss.local";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJNzJzgfrhQRMrGPGHG9525m0ZThFpAYW9wM21xSthBU ansible@kuhfuss.local"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFCriVrxmwrYX2r6gbGfiQC8P8uTueLpmtL8MM9nA+3l ansible@kuhfuss.local"
     ];
     packages = with pkgs; [];
   };
