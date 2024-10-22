@@ -1,22 +1,27 @@
 { config, pkgs, ... }:
-
+let
+  config = builtins.fromJSON (builtins.readFile ./networking.json);
+  useStaticIP = config.ipv4 != "";
+in
 {
-  networking.hostName = "nixos-changeme";
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.hostName = config.hostName;
 
   # static ip if necessary
-  networking.interfaces.eth0.ipv4.addresses = [ {
-    address = "200.0.1.xx";
-    prefixLength = 24;
-  } ];
-  networking.defaultGateway = "200.0.1.126";
-  networking.nameservers = [ "200.0.1.80" "200.0.1.82" "1.1.1.1" ];
+  networking.interfaces.eth0 = if useStaticIP then {
+    ipv4.addresses = [ {
+      address = config.ipv4;
+      prefixLength = 24;
+    } ];
+    ipv4.gateway = config.gateway;
+    nameservers = config.nameservers;
+  } else {
+    useDHCP = true;
+  };
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
   networking.networkmanager.enable = true;
 
   # Open ports in the firewall.

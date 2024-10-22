@@ -13,7 +13,8 @@ git init -b main &&
 git remote add origin https://github.com/august-kuhfuss/nixos-config &&
 mv configuration.nix configuration.nix.bak &&
 git pull --set-upstream origin main &&
-nano networking.nix &&
+echo \"{\"hostName\": \"changeme\"}\" > networking.json &&
+nano networking.json &&
 nixos-rebuild switch" && nix-shell -p git --run "$script"
 ```
 
