@@ -7,15 +7,13 @@ in
   networking.hostName = config.hostName;
 
   # static ip if necessary
-  networking.interfaces.eth0 = if useStaticIP then {
-    ipv4.addresses = [ {
+  if useStaticIP then {
+    networking.interfaces.eth0.ipv4.addresses = [ {
       address = config.ipv4;
       prefixLength = 24;
     } ];
-    ipv4.gateway = config.gateway;
-    nameservers = config.nameservers;
-  } else {
-    useDHCP = true;
+    networking.defaultGateway = config.gateway;
+    networking.nameservers = config.nameservers;
   };
 
   # Configure network proxy if necessary
