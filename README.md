@@ -4,12 +4,21 @@ for easy setup. `hardware-config.nix` should be aviable
 
 ## Usage
 
+first time installation (best as `root` or equivalent):
+
 ```bash
-(cd /etc/nixos && sudo git clone https://github.com/august-kuhfuss/nixos-config) && sudo nixos-rebuild switch
+script="cd /etc/nixos &&
+git config --global --add safe.directory /etc/nixos &&
+git init -b main &&
+git remote add origin https://github.com/august-kuhfuss/nixos-config &&
+mv configuration.nix configuration.nix.bak &&
+git pull --set-upstream origin main &&
+nano networking.nix &&
+nixos-rebuild switch" && nix-shell -p git --run "$script"
 ```
 
-first time installation:
+updating:
 
 ```bash
-nix-shell -p git && (cd /etc/nixos && sudo git clone https://github.com/august-kuhfuss/nixos-config . --force) && sudo nixos-rebuild switch
+(cd /etc/nixos && sudo git pull) && sudo nixos-rebuild switch
 ```
