@@ -40,7 +40,7 @@
       isNormalUser = true;
       description = "hennes.tarrach-fucke@kuhfussonline.com";
       extraGroups = [ "networkmanager" "wheel" "docker" ];
-      hashedPassword = "$y$j9T$GJ9Sjz7gVH2xF6Hmz3PBd0$HF5OxX8khCqF/vo1sPn/lWu8ki0SSAckRtUQ1jHvvVA";
+      hashedPassword = "$y$j9T$IcvNmO4U7VgIivoN66BOL.$B5ZKLrv3kYbCXfMCGBgbLWEZ2sFQ5XwFBmWYy2T16j0";
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPwy3kXvkpyFpkSr+0W73LYBjXdXkn0E4WTCBbH60Jyu hennes.tarrach-fucke@kuhfussonline.com"
       ];
