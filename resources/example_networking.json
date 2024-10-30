@@ -1,7 +1,0 @@
-{
-	"$schema": "https://raw.githubusercontent.com/august-kuhfuss/nixos-config/refs/heads/main/resources/networking.schema.json",
-	"hostName": "changeme",
-	"ipv4": "192.168.1.20",
-	"gateway": "192.168.1.1",
-	"nameservers": ["192.168.1.2", "192.168.1.3"]
-}
