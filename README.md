@@ -34,5 +34,13 @@ example `networking.json`
 ## keeping up to date
 
 ```bash
-(cd /etc/nixos && sudo git pull) && sudo nixos-rebuild switch
+sudo sh -c 'cd /etc/nixos && git pull && nixos-rebuild switch'
+```
+
+## password change
+
+if you need your password changed, the user needs to be reset. here is a oneliner
+
+```bash
+sudo sh -c 'cd /etc/nixos && sed -i "s|./users|#./users|g" configuration.nix && nixos-rebuild switch && git reset --hard && nixos-rebuild switch'
 ```
