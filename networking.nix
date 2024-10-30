@@ -6,10 +6,10 @@ in
   networking.hostName = config.hostName;
 
   # static ip
-  networking.interfaces.eth0.ipv4.addresses = [ {
+  networking.interfaces.eth0.ipv4.addresses = [{
     address = config.ipv4;
     prefixLength = 24;
-  } ];
+  }];
   networking.defaultGateway = config.gateway;
   networking.nameservers = config.nameservers;
 

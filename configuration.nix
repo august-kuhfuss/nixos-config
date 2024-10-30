@@ -2,7 +2,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./networking.nix
       ./users.nix
@@ -42,9 +43,12 @@
   # Configure console keymap
   console.keyMap = "de-latin1-nodeadkeys";
 
-  virtualisation.docker.enable = true;
-  virtualisation.docker.liveRestore = false;
   virtualisation.vmware.guest.enable = true;
+
+  virtualisation.docker = {
+    enable = true;
+    liveRestore = false;
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -52,11 +56,11 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-        vim
-        tmux
-        python3
-        git
-        htop
+    vim
+    tmux
+    python3
+    git
+    htop
   ];
 
   # Enable the OpenSSH daemon.
@@ -71,4 +75,11 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
 
+}
+
+{
+  fileSystems."/mnt/docker-storage" = {
+    device = "200.0.1.49:/lab.datastore";
+    fsType = "nfs";
+  };
 }

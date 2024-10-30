@@ -11,7 +11,7 @@
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFCriVrxmwrYX2r6gbGfiQC8P8uTueLpmtL8MM9nA+3l ansible@kuhfuss.local"
       ];
-      packages = with pkgs; [];
+      packages = with pkgs; [ ];
     };
 
     sven_giesecke = {
@@ -22,7 +22,7 @@
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHVA1+xsucJUXKpbe+aLoNNhUV1XRK5dykfEGfuDZcHg sven.giesecke@kuhfussonline.com"
       ];
-      packages = with pkgs; [];
+      packages = with pkgs; [ ];
     };
 
     borislaw_sotnikow = {
@@ -33,7 +33,7 @@
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGWejPaZihz64Fk2/NUbmA6MbNLQz+AGDgy2UXLfe0ci borislaw.sotnikow@kuhfussonline.com"
       ];
-      packages = with pkgs; [];
+      packages = with pkgs; [ ];
     };
 
     hennes_tarrach-fucke = {
@@ -44,7 +44,7 @@
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPwy3kXvkpyFpkSr+0W73LYBjXdXkn0E4WTCBbH60Jyu hennes.tarrach-fucke@kuhfussonline.com"
       ];
-      packages = with pkgs; [];
+      packages = with pkgs; [ ];
     };
 
   };
