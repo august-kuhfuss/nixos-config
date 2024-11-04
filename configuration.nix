@@ -50,6 +50,12 @@
     liveRestore = false;
   };
 
+  services.prometheus.exporters.node = {
+    enable = true;
+    enabledCollectors = [ "systemd" ];
+    extraFlags = [ "--collector.ethtool" "--collector.softirqs" "--collector.tcpstat" ];
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 

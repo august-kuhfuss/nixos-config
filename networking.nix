@@ -20,7 +20,7 @@ in
   networking.networkmanager.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 22 80 443 2377 7946 ];
+  networking.firewall.allowedTCPPorts = [ 22 80 443 2377 7946 9100 ];
   networking.firewall.allowedUDPPorts = [ 7946 4789 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
