@@ -65,6 +65,7 @@
     vim
     tmux
     python3
+    python312Packages.docker
     git
     htop
   ];
