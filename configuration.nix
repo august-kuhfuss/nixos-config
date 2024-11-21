@@ -83,10 +83,3 @@
   system.stateVersion = "23.11"; # Did you read the comment?
 
 }
-
-{
-  fileSystems."/mnt/docker-storage" = {
-    device = "200.0.1.49:/lab.datastore";
-    fsType = "nfs";
-  };
-}
