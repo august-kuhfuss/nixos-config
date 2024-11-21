@@ -13,21 +13,16 @@
 
   imports =
     [
-      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./networking.nix
       ./users.nix
     ];
 
-  # Bootloader.
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-
-  # Set your time zone.
   time.timeZone = "Europe/Berlin";
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "de_DE.UTF-8";
@@ -57,13 +52,6 @@
 
   services = {
     openssh.enable = true;
-
-    prometheus.exporters.node = {
-      enable = true;
-      enabledCollectors = [ "systemd" ];
-      extraFlags = [ "--collector.ethtool" "--collector.softirqs" "--collector.tcpstat" ];
-    };
-
   };
 
   environment.systemPackages = with pkgs; [
