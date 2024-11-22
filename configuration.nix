@@ -52,6 +52,12 @@
 
   services = {
     openssh.enable = true;
+
+    prometheus.exporters.node = {
+      enable = true;
+      enabledCollectors = [ "systemd" ];
+      extraFlags = [ "--collector.ethtool" "--collector.softirqs" "--collector.tcpstat" ];
+    };
   };
 
   environment.systemPackages = with pkgs; [
